@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Tu Ramo Especial ❤️</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: radial-gradient(circle at center, #1e293b 0%, #0d1117 100%);
+            font-family: 'Segoe UI', sans-serif;
+            overflow: hidden;
+        }
+
+        /* Más partículas en los bordes para mayor detalle */
+        .leaf-particle {
+            position: absolute;
+            background-color: #22c55e;
+            border-radius: 50% 0 50% 0;
+            opacity: 0.15;
+            filter: blur(1px);
+            z-index: 0;
+            animation: float-particle 10s linear infinite;
+        }
+
+        @keyframes float-particle {
+            0% { transform: translateY(110vh) rotate(0deg); opacity: 0; }
+            20% { opacity: 0.2; }
+            80% { opacity: 0.2; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+        }
+
+        .card {
+            background-color: #fffaf0;
+            width: 85%;
+            max-width: 360px;
+            padding: 30px 25px;
+            border-radius: 35px;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: filter 0.5s ease;
+        }
+
+        .blur-effect {
+            filter: blur(8px);
+            pointer-events: none;
+        }
+
+        h1 {
+            font-family: 'Caveat', cursive;
+            color: #166534;
+            font-size: 2.1rem;
+            margin: 0;
+        }
+
+        .heart {
+            font-size: 1.5rem;
+            display: inline-block;
+            margin: 5px 0 10px 0;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        .bouquet-container {
+            width: 100%;
+            margin: 0 auto;
+            filter: drop-shadow(0 15px 12px rgba(0,0,0,0.3));
+            animation: sway 5s ease-in-out infinite;
+            transform-origin: bottom center;
+        }
+
+        @keyframes sway {
+            0%, 100% { transform: rotate(-2deg); }
+            50% { transform: rotate(2deg); }
+        }
+
+        .open-letter-btn {
+            background: none;
+            border: none;
+            font-size: 2.5rem;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: transform 0.3s ease;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .letter-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .letter-content {
+            background: #fff;
+            width: 80%;
+            max-width: 320px;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            font-family: 'Caveat', cursive;
+            font-size: 1.5rem;
+            line-height: 1.4;
+            color: #333;
+            text-align: left;
+            position: relative;
+            transform: translateY(20px);
+            transition: transform 0.4s ease;
+        }
+
+        .letter-content::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: repeating-linear-gradient(#fff 0px, #fff 24px, #e5e5e5 25px);
+            z-index: -1;
+            border-radius: 15px;
+        }
+
+        .close-btn {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #ef4444;
+            text-decoration: none;
+            font-weight: bold;
+            font-family: sans-serif;
+            font-size: 0.9rem;
+        }
+
+        svg { width: 100%; height: auto; }
+    </style>
+</head>
+<body>
+
+    <div class="leaf-particle" style="left: 5%; animation-duration: 12s;"></div>
+    <div class="leaf-particle" style="left: 15%; animation-duration: 15s; animation-delay: 2s;"></div>
+    <div class="leaf-particle" style="left: 30%; animation-duration: 8s;"></div>
+    <div class="leaf-particle" style="left: 80%; animation-duration: 11s; animation-delay: 3s;"></div>
+    <div class="leaf-particle" style="left: 95%; animation-duration: 13s;"></div>
+
+    <div class="card" id="mainCard">
+        <h1>Un Ramo de Cilantroes para Ti</h1>
+        <div class="heart">❤️</div>
+
+        <div class="bouquet-container">
+            <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+                <path d="M40,110 L15,65 L100,45 L185,65 L160,110 L100,220 Z" fill="#1a1a1a" />
+                <path d="M30,80 L100,40 L170,80 L100,210 Z" fill="#2d2d2d" opacity="0.8" />
+                
+                <defs>
+                    <path id="leaf" d="M0,0 C-3,-5 -8,-5 -10,-2 C-13,1 -10,6 -7,7 C-10,10 -6,15 0,12 C6,15 10,10 7,7 C10,6 13,1 10,-2 C8,-5 3,-5 0,0 Z" />
+                </defs>
+
+                <g stroke="#3f6212" stroke-width="1.8" fill="none" stroke-linecap="round">
+                    <path d="M100,200 Q70,180 35,120" />
+                    <use href="#leaf" x="35" y="120" fill="#15803d" transform="rotate(-35 35 120)" />
+                    <use href="#leaf" x="50" y="145" fill="#166534" transform="scale(0.8) rotate(-25 50 145)" />
+                    
+                    <path d="M100,200 Q80,160 55,95" />
+                    <use href="#leaf" x="55" y="95" fill="#14532d" transform="rotate(-20 55 95)" />
+                    <use href="#leaf" x="65" y="130" fill="#15803d" transform="scale(0.9) rotate(-15 65 130)" />
+                    <use href="#leaf" x="75" y="160" fill="#22c55e" transform="scale(0.7)" />
+
+                    <path d="M100,200 Q85,150 75,75" />
+                    <use href="#leaf" x="75" y="75" fill="#15803d" transform="rotate(-5 75 75)" />
+                    <use href="#leaf" x="80" y="110" fill="#166534" transform="scale(0.9)" />
+                    <use href="#leaf" x="85" y="145" fill="#22c55e" transform="scale(0.7)" />
+
+                    <path d="M100,200 Q95,140 92,85" />
+                    <use href="#leaf" x="92" y="85" fill="#166534" transform="scale(1.1)" />
+                    <use href="#leaf" x="92" y="125" fill="#15803d" transform="scale(0.85)" />
+
+                    <path d="M100,200 Q105,140 108,85" />
+                    <use href="#leaf" x="108" y="85" fill="#166534" transform="scale(1.1)" />
+                    <use href="#leaf" x="108" y="125" fill="#15803d" transform="scale(0.85)" />
+
+                    <path d="M100,200 Q115,150 125,75" />
+                    <use href="#leaf" x="125" y="75" fill="#15803d" transform="rotate(5 125 75)" />
+                    <use href="#leaf" x="120" y="110" fill="#166534" transform="scale(0.9)" />
+                    <use href="#leaf" x="115" y="145" fill="#22c55e" transform="scale(0.7)" />
+
+                    <path d="M100,200 Q120,160 145,95" />
+                    <use href="#leaf" x="145" y="95" fill="#14532d" transform="rotate(15 145 95)" />
+                    <use href="#leaf" x="135" y="130" fill="#15803d" transform="scale(0.9) rotate(10 135 130)" />
+                    <use href="#leaf" x="125" y="160" fill="#22c55e" transform="scale(0.7)" />
+
+                    <path d="M100,200 Q130,180 165,120" />
+                    <use href="#leaf" x="165" y="120" fill="#15803d" transform="rotate(30 165 120)" />
+                    <use href="#leaf" x="150" y="145" fill="#166534" transform="scale(0.8) rotate(20 150 145)" />
+                </g>
+                
+                <path d="M40,140 Q20,180 100,220 Q180,180 160,140 L140,160 L60,160 Z" fill="#1a1a1a" />
+                
+                <g fill="#ef4444" stroke="#b91c1c" stroke-width="1">
+                    <ellipse cx="85" cy="185" rx="15" ry="10" transform="rotate(-20 85 185)" />
+                    <ellipse cx="115" cy="185" rx="15" ry="10" transform="rotate(20 115 185)" />
+                    <circle cx="100" cy="188" r="6" />
+                    <path d="M95,190 L85,210" stroke-width="3" />
+                    <path d="M105,190 L115,210" stroke-width="3" />
+                </g>
+            </svg>
+        </div>
+
+        <button class="open-letter-btn" onclick="toggleLetter(true)">📩</button>
+    </div>
+
+    <div class="letter-overlay" id="letterOverlay" onclick="toggleLetter(false)">
+        <div class="letter-content" onclick="event.stopPropagation()">
+            <p>Hola Ani,</p>
+            <p>Sé que hay muchas formas en que llevamos nuestra amistad, y aunque a veces te quieras alejar de mí sabes que te quiero.</p>
+            <p>Espero que este detalle te guste, para que veas lo importante que eres para mí.</p>
+            <p>🌿</p>
+            <a href="#" class="close-btn" onclick="toggleLetter(false)">Cerrar carta</a>
+        </div>
+    </div>
+
+    <script>
+        function toggleLetter(show) {
+            const overlay = document.getElementById('letterOverlay');
+            const card = document.getElementById('mainCard');
+            if (show) {
+                overlay.style.display = 'flex';
+                setTimeout(() => {
+                    overlay.style.opacity = '1';
+                    overlay.querySelector('.letter-content').style.transform = 'translateY(0)';
+                    card.classList.add('blur-effect');
+                }, 10);
+            } else {
+                overlay.style.opacity = '0';
+                overlay.querySelector('.letter-content').style.transform = 'translateY(20px)';
+                card.classList.remove('blur-effect');
+                setTimeout(() => {
+                    overlay.style.display = 'none';
+                }, 400);
+            }
+        }
+    </script>
+</body>
+</html>
